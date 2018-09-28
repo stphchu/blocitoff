@@ -11,22 +11,22 @@
  </head>
 
   <body>
-  <div class="container">
-    <ul class="nav nav-tabs" >
-     <li><%= link_to "Home", root_path %></li>
+   <div class="container">
+     <ul class="nav nav-tabs" >
+      <li><%= link_to "Home", root_path %></li>
 
-    <% if user_signed_in? %>
-     <div>
-       <li class="pull-right">Signed in as: <strong><%= current_user.email %></strong>
-       <li class="pull-right"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-       <div><li class="pull-right">|</li></div>
-       <li class="pull-right"><%= link_to "Edit profile", edit_user_registration_path %></li>
-     </div>
-    <% else %>
-       <li class="pull-right"><%= link_to "Sign Up", new_user_registration_path %></li>
-       <li class="pull-right"><%= link_to "Sign In", new_user_session_path %></li>
-    <% end %>
-   </ul>
+      <% if user_signed_in? %>
+        <div>
+          <li class="pull-right">Signed in as: <strong><%= current_user.email %></strong></li><br>
+          <li class="pull-right"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+          <div><li class="pull-right">|</li></div>
+          <li class="pull-right"><%= link_to "Edit profile", edit_user_registration_path %></li>
+        </div>
+      <% else %>
+         <li class="pull-right"><%= link_to "Sign Up", new_user_registration_path %></li>
+         <li class="pull-right"><%= link_to "Sign In", new_user_session_path %></li>
+      <% end %>
+    </ul>
 
     <% if flash[:notice] %>
       <div class="alert alert-success">
