@@ -9,7 +9,11 @@
    </div>
  </div>
  
-<h3>Your Lists</h3>
+<% if @user == current_user %>
+  <h3>Your List</h3>
+<% else %>
+  <h3><%= "#{@user.email}'s List" %></h3>
+<% end %>
 
 <div>
 <%= render partial: "items/item", locals: { item: @item, user: @user } %>
