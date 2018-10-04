@@ -10,3 +10,11 @@
  </div>
  
 <h3>Your Lists</h3>
+
+<div>
+<%= render partial: "items/item", locals: { item: @item, user: @user } %>
+</div>
+
+<div>
+<%= render partial: "items/form", locals: { item: @item, user: @user } %>
+</div>

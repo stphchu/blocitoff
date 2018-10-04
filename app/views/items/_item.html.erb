@@ -1,0 +1,13 @@
+<ul class="list-group">
+    <% user.items.each do |item| %>
+         <li class="list-group-item">
+             <%= item.name %>
+             <br>
+             <div>
+              <small>
+               added <%= time_ago_in_words(item.created_at) %> ago
+              </small>
+             </div>
+         </li>
+    <% end %>
+</ul>
