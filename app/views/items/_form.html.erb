@@ -1,5 +1,5 @@
 <%= form_for [@user, Item.new] do |f| %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, autofocus: true %>
       <br><br>
       <%= f.submit "Add item", class: 'btn' %>
 <% end %>

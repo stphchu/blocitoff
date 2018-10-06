@@ -1,24 +1,38 @@
 <div class="row">
    <div class="col-md-8">
      <div class="media">
-       <br />
+       <br>
        <div class="media-body">
-         <h2 class="media-heading"></h2>
+         <h2 class="media-heading">
+           <% if @user == current_user %>Welcome, <% end %>
+           <%= "#{@user.username}" %>
+         </h2>
        </div>
+	<small>
+	  <% if @user.last_sign_in_at == nil %>
+          User hasn't logged in yet
+          <% else %>
+          Last signed in <%= timeago(@user.last_sign_in_at) %>
+          <% end %>
+        </small>
      </div>
    </div>
  </div>
- 
+
+
 <% if @user == current_user %>
   <h3>Your List</h3>
 <% else %>
-  <h3><%= "#{@user.email}'s List" %></h3>
+  <h3><%= "#{@user.username}'s List" %></h3>
 <% end %>
+<br>
 
 <div>
-<%= render partial: "items/item", locals: { item: @item, user: @user } %>
+  <%= render partial: "items/item", locals: { item: @item, user: @user } %>
 </div>
 
-<div>
-<%= render partial: "items/form", locals: { item: @item, user: @user } %>
-</div>
+<% if @user == current_user %>
+  <div>
+    <%= render partial: "items/form", locals: { item: @item, user: @user } %>
+  </div>
+<% end %>

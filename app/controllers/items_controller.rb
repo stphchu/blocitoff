@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  respond_to :html, :js
 
 #NEW
   def new
@@ -13,6 +14,8 @@ class ItemsController < ApplicationController
 
     if @item.save
        redirect_to request.referrer
+    else
+       flash[:error] = "There was an error creating the item. Please try again."
     end
 
   end
@@ -20,6 +23,12 @@ class ItemsController < ApplicationController
 #SHOW
   def show
     @item = Item.find(params[:id])
+  end
+
+#DESTROY
+  def destroy
+    @item = current_user.items.find(params[:id])
+    flash[:error] = "Item couldn't be removed, try again" unless @item.destroy
   end
 
 
