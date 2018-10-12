@@ -10,14 +10,14 @@
        </div>
 	<small>
 	  <% if @user.last_sign_in_at == nil %>
-          User hasn't logged in yet
+            User hasn't logged in yet
           <% else %>
-          Last signed in <%= timeago(@user.last_sign_in_at) %>
+            Last signed in <%= local_time_ago(@user.last_sign_in_at) %>
           <% end %>
         </small>
      </div>
    </div>
- </div>
+</div>
 
 
 <% if @user == current_user %>

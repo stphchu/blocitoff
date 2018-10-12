@@ -11,10 +11,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
-//= require jquery.timeago
+//= require local-time

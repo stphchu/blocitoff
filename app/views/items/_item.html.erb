@@ -1,18 +1,16 @@
-<div>
-<ul class="list-group list-group-flush">
+<ul class="list-group list-group">
     <% user.items.each do |item| %>
-         <li class="list-group-item", id="item-#{item.id}">
+         <li class="list-group-item", id="item-<%= item.id %>">
 	 <% if @user == current_user %>
-	   <span>
              <%= link_to "", user_item_path(@user, item), method: :delete, class: 'glyphicon glyphicon-ok', remote: true %>
-           </span>
 	 <% end %>
-           <%= item.name %>
+           <span>
+             <%= item.name %>
+           </span>
            <br>
            <div>
-              <small>added <%= timeago(item.created_at) %></small>
+              <small>added <%= local_time_ago(item.created_at) %></small>
            </div>
          </li>
     <% end %>
 </ul>
-</div>
