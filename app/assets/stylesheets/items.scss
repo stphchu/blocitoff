@@ -3,3 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .list-group-item { word-wrap: break-word; }
+
+.label-as-badge {
+    border-radius: 1em;
+}
+
+#item-created {
+  color: gray;
+  font-style: italic;
+  
+ }
+
+#check-mark {
+ padding-right: 5px;
+}
+
