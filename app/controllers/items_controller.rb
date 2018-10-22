@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   respond_to :html, :js
 
+#INDEX
   def index
      @items = Item.all
   end
@@ -31,6 +32,12 @@ class ItemsController < ApplicationController
 #DESTROY
   def destroy
     @item = current_user.items.find(params[:id])
+
+    if @item.destroy    
+      flash[:notice] = "Item marked as complete"
+    else
+      flash[:error] = "There was an error deleting the item. Please try again"
+    end
   end
 
 end

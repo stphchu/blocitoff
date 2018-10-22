@@ -12,8 +12,8 @@
 		<small id="item-created">added <%= local_time_ago(item.created_at) %></small>
             </span>
     
-            <span class="label label-primary label-as-badge pull-right", style="font-size: 12px">
-                <%= distance_of_time_in_words(local_time(Time.now), item.created_at + 7.days) %> left
+            <span class="<%= badge_color(item.created_at + 7.days) %>", style="font-size: 12px">
+                <%= time_remaining(item.created_at + 7.days, item) %>
             </span>
          </div>
       </li>
