@@ -1,4 +1,4 @@
 <% if @item.destroyed? %>
   $('#item-<%= @item.id %>').fadeOut();
-  $('#flash').append("<%= flash_message(flash) %>");
+  $(".flash").html('<%= j render partial: "layouts/flash_messages" %>');
 <% end %>
